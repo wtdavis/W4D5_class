@@ -2,8 +2,8 @@ def first_anagram?(str1, str2)
   str1.split("").permutation.to_a.map { |ele| ele.join }.include?(str2)
 end
 
-p first_anagram?("gizmo", "sally")    #=> false
-p first_anagram?("elvis", "lives")    #=> true
+# p first_anagram?("gizmo", "sally")    #=> false
+# p first_anagram?("elvis", "lives")    #=> true
 
 def first_anagram?(str1, str2)
   anagram_helper(str1).include?(str2)
@@ -26,8 +26,8 @@ def anagram_helper(str)
   new_result
 end
 
-p first_anagram?("gizmo", "sally")    #=> false
-p first_anagram?("elvis", "lives")    #=> true
+# p first_anagram?("gizmo", "sally")    #=> false
+# p first_anagram?("elvis", "lives")    #=> true
 
 
 def second_anagram?(str1, str2)
@@ -42,5 +42,38 @@ def second_anagram?(str1, str2)
   return str2.empty?
 end
 
-p second_anagram?("gizmo", "sally")    #=> false
-p second_anagram?("elvis", "lives")    #=> true
+# p second_anagram?("gizmo", "sally")    #=> false
+# p second_anagram?("elvis", "lives")    #=> true
+
+def third_anagram?(str1, str2)
+  return str1.split("").sort == str2.split("").sort
+end
+
+# p third_anagram?("gizmo", "sally")    #=> false
+# p third_anagram?("elvis", "lives")    #=> true
+
+def fourth_anagram?(str1, str2)
+    hashagram(str1) == hashagram(str2)
+end
+
+def hashagram(str)
+    anahash = Hash.new(0)
+    str.each_char {|char| anahash[char] += 1}
+    return anahash
+
+end
+p fourth_anagram?("gizmo", "sally")    #=> false
+p fourth_anagram?("elvis", "lives")    #=> true
+puts
+
+def bonusgram?(str1, str2)
+  return false if str1.length != str2.length
+    bonahash = Hash.new(0)
+    (0...str1.length).each do |idx|
+      bonahash[str1[idx]] += 1
+      bonahash[str2[idx]] -= 1
+    end
+    return bonahash.values.all?{|val| val == 0}
+end
+p bonusgram?("gizmo", "sally")    #=> false
+p bonusgram?("elvis", "lives")    #=> true
