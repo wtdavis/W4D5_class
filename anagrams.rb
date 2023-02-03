@@ -1,3 +1,4 @@
+# O(n!)
 def first_anagram?(str1, str2)
   str1.split("").permutation.to_a.map { |ele| ele.join }.include?(str2)
 end
@@ -31,6 +32,7 @@ p first_anagram?("elvis", "lives")    #=> true
 puts
 
 
+# O(n^2)
 def second_anagram?(str1, str2)
   return false if str1.length != str2.length
 
@@ -47,6 +49,7 @@ p second_anagram?("gizmo", "sally")    #=> false
 p second_anagram?("elvis", "lives")    #=> true
 puts
 
+# O(n log n)
 def third_anagram?(str1, str2)
   return str1.split("").sort == str2.split("").sort
 end
@@ -55,6 +58,7 @@ p third_anagram?("gizmo", "sally")    #=> false
 p third_anagram?("elvis", "lives")    #=> true
 puts
 
+# O(n)
 def fourth_anagram?(str1, str2)
     hashagram(str1) == hashagram(str2)
 end
@@ -69,6 +73,7 @@ p fourth_anagram?("gizmo", "sally")    #=> false
 p fourth_anagram?("elvis", "lives")    #=> true
 puts
 
+# O(n)
 def bonagram?(str1, str2)
   return false if str1.length != str2.length
   bonahash = Hash.new(0)

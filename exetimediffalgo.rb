@@ -1,3 +1,4 @@
+# O(n^2)
 def my_min_1(arr)
   arr.each do |ele|
     return ele if arr.all? { |ele1| ele1 >= ele }
@@ -7,6 +8,7 @@ end
 list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
 p my_min_1(list)  # =>  -5
 
+# O(n)
 def my_min_2(arr)
   min = arr[0]
   arr.each do |ele|
@@ -18,6 +20,7 @@ end
 list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
 p my_min_2(list)  # =>  -5
 
+# O(n^2)
 def largest_contiguous_subsum_1(arr)
   subarrs = []
   (0...arr.length).each do |idx1|
@@ -35,6 +38,7 @@ list = [-5, -1, -3]
 p largest_contiguous_subsum_1(list) 
 
 
+# O(n)
 def largest_contiguous_subsum_2(arr)
     current_sum = 0
     largest_sum = nil
@@ -52,6 +56,3 @@ list = [2, 3, -6, 7, -6, 7]
 p largest_contiguous_subsum_2(list) # => 8 (from [7, -6, 7])
 list = [-5, -1, -3]
 p largest_contiguous_subsum_2(list) 
-
-a = "string"
-p a.permutation
